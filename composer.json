@@ -1,0 +1,18 @@
+{
+	"name": "fadib/cakephp-akismet",
+    "type": "cakephp-plugin",
+	"description": "Akismet plugin for CakePHP 2.x",
+    "keywords": ["cakephp", "anti-spam", "akismet"],
+	"homepage": "https://github.com/fadib/CakePHP-Akismet",
+	"license": "GPL",
+	"authors": [
+		{
+			"name": "Fahmi Adib",
+			"homepage": "http://fahmiadib.com"
+		}
+	],
+    "support": {
+        "issues": "https://github.com/fadib/CakePHP-Akismet/issues",
+        "source": "https://github.com/fadib/CakePHP-Akismet"
+    }
+}
