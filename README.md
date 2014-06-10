@@ -1,4 +1,4 @@
-CakePHP-Akismet
+Akismet
 ===============
 
-Akismet plugin for CakePHP 2.x
+Akismet wrapper for PHP 5.2+

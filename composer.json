@@ -1,9 +1,9 @@
 {
-	"name": "fadib/cakephp-akismet",
-	"type": "cakephp-plugin",
-	"description": "Akismet plugin for CakePHP 2.x",
-	"keywords": ["cakephp", "anti-spam", "akismet"],
-	"homepage": "https://github.com/fadib/CakePHP-Akismet",
+	"name": "fadib/Akismet",
+	"type": "php-library",
+	"description": "Akismet wrapper for PHP 5.2+",
+	"keywords": ["php", "anti-spam", "akismet"],
+	"homepage": "https://github.com/fadib/Akismet",
 	"license": "GPL",
 	"authors": [
 		{
@@ -12,7 +12,7 @@
 		}
 	],
 	"support": {
-		"issues": "https://github.com/fadib/CakePHP-Akismet/issues",
-		"source": "https://github.com/fadib/CakePHP-Akismet"
+		"issues": "https://github.com/fadib/Akismet/issues",
+		"source": "https://github.com/fadib/Akismet"
 	}
 }
