@@ -103,7 +103,7 @@ class Services_Akismet_Account {
                 $data['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
             }
             if ( !array_key_exists( 'referrer', $data ) ) {
-                $data['referrer'] = $_SERVER['HTTP_REFERER'];
+                $data['referrer'] = isset( $_SERVER['HTTP_REFERER'] ) ? $_SERVER['HTTP_REFERER'] : '';
             }
         }
 		
