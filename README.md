@@ -29,6 +29,7 @@ Checking if comment is spam
         'comment_author_email' => 'Email address submitted with the comment',
         'comment_author_url' => 'URL submitted with comment',
         'comment_content' => 'The content that was submitted'
-    ));
+    ) );
 
-Above function returns `true`, if comment is spam, `false` otherwise. `$akismet->submitSpam()` and `$akismet->submitHam()` works same way.
+Above function returns `true`, if comment is spam, `false` otherwise. 
+`$akismet->submitSpam()` and `$akismet->submitHam()` works same way.
