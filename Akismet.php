@@ -11,7 +11,6 @@ function Services_Akismet_autoload( $className ) {
         return false;
     }
     $file = str_replace( '_', '/', $className );
-    // $file = str_replace( 'Services/', '', $file );
     return include dirname(__FILE__) . "/{$file}.php";
 }
 
