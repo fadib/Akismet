@@ -2,44 +2,44 @@
 
 class Services_Akismet_Account {
 	
-    /**
-     * Base URL of Akismet API
-     */
-    const AKISMET_URL = 'rest.akismet.com';
+	/**
+	 * Base URL of Akismet API
+	 */
+	const AKISMET_URL = 'rest.akismet.com';
 
-    /**
-     * Akismet API version to use
-     */
-    const AKISMET_API_VERSION = '1.1';
+	/**
+	 * Akismet API version to use
+	 */
+	const AKISMET_API_VERSION = '1.1';
 
-    /**
-     * API method to verify key
-     */
-    const PATH_VERIFY = 'verify-key';
+	/**
+	 * API method to verify key
+	 */
+	const PATH_VERIFY = 'verify-key';
 
-    /**
-     * API method to check if message is spam
-     */
-    const PATH_CHECK = 'comment-check';
+	/**
+	 * API method to check if message is spam
+	 */
+	const PATH_CHECK = 'comment-check';
 
-    /**
-     * API method to mark message as spam
-     */
-    const PATH_SPAM = 'submit-spam';
+	/**
+	 * API method to mark message as spam
+	 */
+	const PATH_SPAM = 'submit-spam';
 
-    /**
-     * API method to mark message as ham (not-spam)
-     */
-    const PATH_HAM = 'submit-ham';
-	
-    /*
-     * Possible API return values
-     */
-    const RETURN_TRUE = 'true';
-    const RETURN_FALSE = 'false';
-    const RETURN_INVALID = 'invalid';
-    const RETURN_VALID = 'valid';
-    const RETURN_THANKS = 'Thanks for making the web a better place.';
+	/**
+	 * API method to mark message as ham (not-spam)
+	 */
+	const PATH_HAM = 'submit-ham';
+
+	/*
+	 * Possible API return values
+	 */
+	const RETURN_TRUE = 'true';
+	const RETURN_FALSE = 'false';
+	const RETURN_INVALID = 'invalid';
+	const RETURN_VALID = 'valid';
+	const RETURN_THANKS = 'Thanks for making the web a better place.';
 	
 	private $userAgent, $key, $blog, $url, $verify_url;
 	private $error;
