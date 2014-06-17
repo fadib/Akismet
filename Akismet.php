@@ -62,7 +62,7 @@ class Services_Akismet {
      *      comment_author_url - URL submitted with comment<br />
      *      comment_content - the content that was submitted
      *
-     * 	@return boolean True if comment is spam, false otherwise
+     * 	@return boolean True if comment is spam, False otherwise
      */
 	public function commentCheck( $comment ) {
 		return $this->account->commentCheck( $comment );
@@ -79,12 +79,26 @@ class Services_Akismet {
      *      comment_author_url - URL submitted with comment<br />
      *      comment_content - the content that was submitted
      *
-     * @return boolean True if comment has been marked as spam
+     * @return void
      */
 	public function submitSpam( $comment ) {
 		return $this->account->submitSpam( $comment );
 	}
 	
+    /**
+     * This call is intended for the submission of false positives,
+	 * items that were incorrectly classified as spam by Akismet.
+     *
+     * @param array $comment data. Required keys:<br />
+     *      permalink - the permanent location of the entry the comment was submitted to<br />
+     *      comment_type - may be blank, comment, trackback, pingback, or a made up value like "registration"<br />
+     *      comment_author - name submitted with the comment<br />
+     *      comment_author_email - email address submitted with the comment<br />
+     *      comment_author_url - URL submitted with comment<br />
+     *      comment_content - the content that was submitted
+     *
+     * @return void
+     */
 	public function submitHam( $comment ) {
 		return $this->account->submitHam( $comment );
 	}
