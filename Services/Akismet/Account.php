@@ -45,9 +45,9 @@ class Services_Akismet_Account {
 	private $error;
 	
 	public function __construct() {
-        if ( !function_exists('curl_init') ) {
-            throw new Services_Akismet_HttpException('This library requires cURL extension');
-        }
+		if ( !function_exists('curl_init') ) {
+			throw new Services_Akismet_HttpException('This library requires cURL extension');
+		}
 		
 		$this->verify_url = sprintf( "http://%s/%s/", self::AKISMET_URL, self::AKISMET_API_VERSION );
 	}
@@ -66,9 +66,9 @@ class Services_Akismet_Account {
 	}
 	
 	public function verifyKey() {
-        if ( null === $this->key || null === $this->blog ) {
-            throw new Services_Akismet_HttpException('Both key and blog URL cannot be null');
-        }
+		if ( null === $this->key || null === $this->blog ) {
+			throw new Services_Akismet_HttpException('Both key and blog URL cannot be null');
+		}
 		
 		$verifying = $this->query( self::PATH_VERIFY, array( 'key' => $this->key, 'blog' => $this->blog ), self::RETURN_VALID );
 		if ( true === $verifying ) {
@@ -93,30 +93,30 @@ class Services_Akismet_Account {
 	private function query( $path, $data, $return ) {
 		$_url = self::PATH_VERIFY === $path ? $this->verify_url : $this->url;
 		
-        if ( self::PATH_VERIFY !== $path ) {
+		if ( self::PATH_VERIFY !== $path ) {
 			$data['blog'] = $this->blog;
-			
-            if ( !array_key_exists( 'user_ip', $data ) ) {
-                $data['user_ip'] = $_SERVER['REMOTE_ADDR'];
-            }
-            if ( !array_key_exists( 'user_agent', $data ) ) {
-                $data['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
-            }
-            if ( !array_key_exists( 'referrer', $data ) ) {
-                $data['referrer'] = isset( $_SERVER['HTTP_REFERER'] ) ? $_SERVER['HTTP_REFERER'] : '';
-            }
-        }
+
+			if ( !array_key_exists( 'user_ip', $data ) ) {
+				$data['user_ip'] = $_SERVER['REMOTE_ADDR'];
+			}
+			if ( !array_key_exists( 'user_agent', $data ) ) {
+				$data['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
+			}
+			if ( !array_key_exists( 'referrer', $data ) ) {
+				$data['referrer'] = isset( $_SERVER['HTTP_REFERER'] ) ? $_SERVER['HTTP_REFERER'] : '';
+			}
+		}
 		
-        $_http = new Services_Akismet_TinyHttp(
-            sprintf( "%s", $_url ),
-            array(
-                "curlopts" => array(
-                    CURLOPT_USERAGENT => $this->userAgent,
-                    CURLOPT_HTTPHEADER => array('Accept-Charset: utf-8'),
-		            CURLOPT_POST => true,
-                ),
+		$_http = new Services_Akismet_TinyHttp(
+			sprintf( "%s", $_url ),
+			array(
+				"curlopts" => array(
+					CURLOPT_USERAGENT => $this->userAgent,
+					CURLOPT_HTTPHEADER => array('Accept-Charset: utf-8'),
+					CURLOPT_POST => true,
+				),
 			)
-        );
+		);
 		
 		$_http_return = $_http->post( 
 			$path, 
@@ -124,16 +124,16 @@ class Services_Akismet_Account {
 			http_build_query( $data ) 
 		);
 		
-        if ( trim( end( $_http_return ) ) == $return ) {
-            return true;
-        } else {
-            foreach ( $_http_return[1] as $header ) {
-                if ( stripos( $header, 'X-akismet-debug-help' ) === 0 ) {
-                    $this->error = trim( $header );
-                }
-            }
-            return false;
-        }
+		if ( trim( end( $_http_return ) ) == $return ) {
+			return true;
+		} else {
+			foreach ( $_http_return[1] as $header ) {
+				if ( stripos( $header, 'X-akismet-debug-help' ) === 0 ) {
+					$this->error = trim( $header );
+				}
+			}
+			return false;
+		}
 	}
 	
 	public function getError() {
