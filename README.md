@@ -8,7 +8,7 @@ Usage
 
 Include the library file
 
-	require_once '/path/to/Akismet/Akismet.php';
+	require_once '/path/to/Services/Akismet/Akismet.php';
 	
 Initalizing class and set required API key and home/blog URL
 
