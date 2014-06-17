@@ -102,4 +102,10 @@ class Services_Akismet {
 		return $this->account->submitHam( $comment );
 	}
 	
+	/**
+	 * Deprecated
+	 */
+	public function verifyKey() { return $this->isKeyValid(); }
+	public function commentCheck( $comment ) { return $this->isCommentSpam( $comment ); }	
+	
 }
