@@ -18,11 +18,11 @@ Initalizing class and set required API key and home/blog URL
 
 Verifying API key
 
-    $akismet->verifyKey();
+    $akismet->isKeyValid();
 
 Checking if comment is spam
 
-    $akismet->commentCheck( array( 
+    $akismet->isCommentSpam( array( 
         'permalink' => 'The permanent location of the entry the comment was submitted to',
         'comment_type' => 'May be blank, comment, trackback, pingback, or a made up value like "registration"',
         'comment_author' => 'Name submitted with the comment',

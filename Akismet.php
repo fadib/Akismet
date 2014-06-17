@@ -46,7 +46,7 @@ class Services_Akismet {
 		$this->account->setBlogUrl( $blog );
 	}
 	
-	public function verifyKey() {
+	public function isKeyValid() {
 		return $this->account->verifyKey();
 	}
 
@@ -63,7 +63,7 @@ class Services_Akismet {
      *
      * 	@return boolean True if comment is spam, False otherwise
      */
-	public function commentCheck( $comment ) {
+	public function isCommentSpam( $comment ) {
 		return $this->account->commentCheck( $comment );
 	}
 	
